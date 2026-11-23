@@ -29,7 +29,7 @@
 문구를 바꾸거나 2회차 우수작을 카드로 추가하려면:
 1. `scripts/make_cards.py`의 `CARDS` 목록을 고칩니다.
 2. `python scripts/make_cards.py`를 실행합니다.
-3. 카드 수가 바뀌었다면 `docs/index.html`의 `CARD_COUNT`도 고칩니다.
+3. `docs/index.html`의 `CARD_VERSION` 숫자를 1 올립니다. 카드 수가 바뀌었다면 `CARD_COUNT`도 고칩니다.
 4. 커밋하고 push합니다.
 
 ---
