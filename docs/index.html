@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>존중 캠페인 · 경기기계공업고등학교</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --ink: #1d2433; --sub: #5b6475;
+    --brand: #2f6fed; --brand-soft: #e8f0ff; --ok: #12805c; --ok-soft: #e6f6ef;
+    --warn: #b4540a; --warn-soft: #fff3e6; --line: #e3e6ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    line-height: 1.6; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+  header { padding: 8px 4px 16px; }
+  .school { font-size: 13px; color: var(--sub); margin: 0; }
+  h1 { font-size: 24px; margin: 4px 0 6px; letter-spacing: -0.02em; }
+  .lead { margin: 0; color: var(--sub); font-size: 15px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin: 14px 0; }
+  .card h2 { font-size: 18px; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+  .badge { font-size: 12px; font-weight: 700; color: var(--brand); background: var(--brand-soft); border-radius: 999px; padding: 2px 10px; }
+  .today { border: 2px solid var(--brand); }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; padding: 4px 0 12px 40px; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--brand); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 14px;
+  }
+  .steps b { display: block; }
+  .steps span { color: var(--sub); font-size: 14px; }
+  .manners { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .manners li { background: var(--bg); border-radius: 12px; padding: 12px 14px; }
+  .manners b { display: block; font-size: 15px; }
+  .manners span { font-size: 14px; color: var(--sub); }
+  .examples { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .examples li { background: var(--ok-soft); color: #0b5a40; border-radius: 12px; padding: 10px 14px; font-size: 14px; }
+  .examples li small { display: block; font-weight: 700; color: var(--ok); font-size: 12px; }
+  .bad { background: #fdecec !important; color: #8a1f1f !important; }
+  .bad small { color: #b42318 !important; }
+  .notice { background: var(--warn-soft); border-color: #f5d3b0; }
+  .notice h2 { color: var(--warn); }
+  .notice ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .btn {
+    display: block; width: 100%; text-align: center; text-decoration: none; font-weight: 700; font-size: 17px;
+    background: var(--brand); color: #fff; border-radius: 14px; padding: 16px; margin-top: 8px;
+  }
+  .btn[aria-disabled="true"] { background: #b9c1d1; pointer-events: none; }
+  .reward { text-align: center; font-size: 14px; color: var(--sub); margin: 10px 0 0; }
+  .rounds { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .rounds li { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; border-radius: 10px; background: var(--bg); font-size: 14px; }
+  .rounds .now { background: var(--brand-soft); font-weight: 700; }
+  .rounds em { font-style: normal; color: var(--sub); white-space: nowrap; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="school">경기기계공업고등학교 · 경기 북부 상호존중 문화 확산 캠페인</p>
+    <h1>온라인에서도 존중해요</h1>
+    <p class="lead">알기 → 해보기 → 퍼뜨리기, 한 번에 10분이면 충분해요.</p>
+  </header>
+
+  <section class="card today">
+    <h2><span class="badge" id="round-badge">1회차</span> <span id="round-title">오늘 할 것</span></h2>
+    <ol class="steps">
+      <li><b>온라인 매너 5가지 읽기</b><span>아래 카드를 1분만 읽어 보세요.</span></li>
+      <li><b>좋은 댓글 하나 달기</b><span>학교 SNS, 유튜브, 친구 게시물 어디든 OK. SNS가 없으면 단톡방 칭찬 한마디도 돼요.</span></li>
+      <li><b>캡처해서 제출하기</b><span>댓글 단 화면을 캡처하고, 아래 버튼을 눌러 폼에 올려요.</span></li>
+    </ol>
+    <a class="btn" id="submit-btn" href="#" aria-disabled="true">제출하기 (준비 중)</a>
+    <p class="reward">참여한 학생에게는 <b>상점</b>을 드려요 · 참여율 높은 반은 칭찬!</p>
+  </section>
+
+  <section class="card">
+    <h2>📘 온라인 매너 5가지</h2>
+    <ul class="manners">
+      <li><b>1. 보내기 전 3초</b><span>읽는 사람 입장에서 한 번 더 읽고 보내요.</span></li>
+      <li><b>2. 얼굴 보고 못 할 말은 온라인에서도 NO</b><span>외모 평가, 패드립, 비꼬기는 하지 않아요.</span></li>
+      <li><b>3. 남의 사진·개인정보는 허락받고</b><span>친구 사진, 이름, 번호를 함부로 올리지 않아요.</span></li>
+      <li><b>4. 단톡방 예의</b><span>늦은 밤 메시지는 자제하고, 읽씹 대신 "확인했어!" 한마디. 누군가를 빼고 말하지 않아요.</span></li>
+      <li><b>5. 확인 안 된 소문은 멈추기</b><span>퍼 나르기 전에 사실인지 먼저 확인해요.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>💬 좋은 댓글은 이렇게</h2>
+    <ul class="examples">
+      <li><small>구체적으로 칭찬</small>"용접 과정을 이렇게 자세히 보여줘서 이해가 쏙 됐어요!"</li>
+      <li><small>공감하기</small>"저도 처음엔 어려웠는데 이 영상 보고 힘이 나요"</li>
+      <li><small>응원하기</small>"대회 준비 고생 많으셨어요. 좋은 결과 있을 거예요!"</li>
+      <li><small>고마움 표현</small>"좋은 정보 공유해 주셔서 감사합니다 🙂"</li>
+      <li class="bad"><small>이건 아쉬워요</small>"ㅋㅋ" "ㅇㅈ" "1빠"처럼 아무 내용 없는 댓글</li>
+    </ul>
+  </section>
+
+  <section class="card notice">
+    <h2>⚠️ 캡처할 때 꼭 지켜요</h2>
+    <ul>
+      <li><b>내 아이디·프로필 사진</b>은 가리고 캡처해요.</li>
+      <li><b>다른 사람 이름·얼굴</b>이 보이면 가려 주세요.</li>
+      <li>얼굴이나 실명이 보이는 캡처는 인정되지 않아요.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🗓️ 캠페인 일정</h2>
+    <ul class="rounds" id="rounds"></ul>
+  </section>
+
+  <footer>경기기계공업고등학교 상호존중 캠페인</footer>
+</div>
+
+<script>
+  // ── 담당 교사 설정 ──────────────────────────────────────────
+  // 1) CURRENT: 지금 진행 중인 회차 번호
+  // 2) FORMS[n].url: 해당 회차 구글폼(또는 패들렛) 주소. 비워 두면 버튼이 '준비 중'으로 보입니다.
+  const CURRENT = 1;
+  const FORMS = {
+    1: { title: "온라인 매너 + 좋은 댓글", when: "11/23 ~ 11/27", url: "https://forms.gle/wXqmMjHkEhZhhhsy8" },
+    2: { title: "말 바꾸기 챌린지", when: "날짜 미정", url: "" },
+    3: { title: "존중 메시지 카드 퍼뜨리기", when: "날짜 미정", url: "" },
+  };
+  // ───────────────────────────────────────────────────────────
+
+  const cur = FORMS[CURRENT];
+  document.getElementById("round-badge").textContent = CURRENT + "회차";
+  document.getElementById("round-title").textContent = cur.title;
+  const btn = document.getElementById("submit-btn");
+  if (cur.url) {
+    btn.href = cur.url;
+    btn.target = "_blank";
+    btn.rel = "noopener";
+    btn.textContent = "캡처 제출하기 →";
+    btn.removeAttribute("aria-disabled");
+  }
+  const list = document.getElementById("rounds");
+  for (const [n, r] of Object.entries(FORMS)) {
+    const li = document.createElement("li");
+    if (Number(n) === CURRENT) li.className = "now";
+    const name = document.createElement("span");
+    name.textContent = `${n}회차 · ${r.title}`;
+    const when = document.createElement("em");
+    when.textContent = Number(n) < CURRENT ? "완료" : r.when;
+    li.append(name, when);
+    list.append(li);
+  }
+</script>
+</body>
+</html>
