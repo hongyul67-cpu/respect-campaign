@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TALLY = ROOT / "data" / "participation.csv"
 SUMMARY = ROOT / "data" / "summary.md"
 FIELDS = ["회차", "학년", "학과", "반", "재적", "참여"]
-ROUND_NAMES = {"1": "온라인 매너 + 좋은 댓글", "2": "말 바꾸기 챌린지", "3": "존중 메시지 카드"}
+ROUND_NAMES = {"1": "온라인 매너 + 좋은 댓글", "2": "말 바꾸기 챌린지", "3": "존중 카드 퍼뜨리기"}
 
 
 def read_csv(path: Path) -> list[dict]:
